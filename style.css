@@ -14,6 +14,9 @@ body {
 nav {
   position: absolute;
   width: 100%;
+  max-width: 1280px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 1em;
 }
 ul {
@@ -35,21 +38,26 @@ nav ul {
   width: 100%;
   height: 100vh;
   background-color: #143434;
-  display: flex;
+  transform: translateX(-1200px);
+  opacity: 0;
+  transition: all 0.4s ease-in;
+}
+nav ul, .logo, .flag-container, .flag{
+display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: translateX(-500px);
-  opacity: 0;
-  transition: all 0.5s ease-in;
+}
+.logo{
+    align-items: flex-start;
 }
 nav ul.nav-active {
   transform: translateX(0);
   opacity: 1;
-  transition: all 0.5s ease-in;
+  transition: all 0.4s ease-in;
 }
 
-nav ul li + li {
+nav ul li + li, .flag-container a:nth-child(2) {
   margin-top: 2em;
 }
 section:nth-child(1) {
@@ -105,4 +113,34 @@ section:nth-child(2) {
   font-weight: 700;
   background-color: white;
   color: #143434;
+}
+@media(min-width: 1440px){
+    .fa-bars.active, i.fas.fa-times{
+        display: none;
+    }
+    nav{
+        display: flex;
+        gap: 1em;
+    }
+    nav ul, .flag-container{
+        flex-direction: row;
+    }
+    nav ul li{
+        font-size: 14px;
+    }
+    nav ul{
+        transform: translateX(0);
+        opacity: 1;
+        background: transparent;
+        height: 50px;
+        position: relative;
+        width: 90%;
+    }
+    .logo{
+        width: 10%;
+    }
+    nav ul li + li, .flag-container a:nth-child(2) {
+        margin-top: 0;
+        margin-left: 0.75em;
+      }
 }
