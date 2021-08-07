@@ -51,7 +51,8 @@ nav ol,
 .logo,
 .flag-container,
 .flag,
-.container {
+.container,
+.sml-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +70,9 @@ nav ol,
   line-height: 1.1em;
   max-width: 475px;
 }
-header .container {
+header .container,
+.third-container,
+.logo, .sml-card-container {
   align-items: flex-start;
 }
 header .container p {
@@ -81,28 +84,24 @@ main section:first-child {
   position: relative;
   z-index: -1;
 }
-main section .container p:first-child {
-  text-align: center;
-  max-width: 800px;
-}
+
 .btn-container,
 header .container p {
   margin-top: 2em;
 }
-.btn-container {
+.btn-container a {
   padding: 1em 2em;
   background: white;
   border-radius: 0 30px 30px 0;
-  width: 250px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .btn-container a,
 .btn-container i {
   color: #304c4a;
   letter-spacing: 1px;
 }
-.logo {
-  align-items: flex-start;
-}
+
 nav ul.nav-active {
   transform: translateX(0);
   opacity: 1;
@@ -186,6 +185,13 @@ section:nth-child(2) {
   justify-content: center;
   text-align: justify;
 }
+.sml-card {
+  gap: 1em;
+  background: #608180;
+  width: 100%;
+  max-width: 300px;
+  height: 100px;
+}
 h2 {
   font-weight: 500;
   color: #143434;
@@ -204,19 +210,74 @@ h2 {
   );
   border-radius: 10px;
   z-index: -1;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .card p {
   font-size: 12px;
   color: #181818;
 }
-.card-container {
-  padding: 0;
+.card-container,
+.sml-card-container {
   justify-content: space-around;
 }
+.third-container .btn-container a {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 @media (orientation: landscape) {
   .card-container {
     flex-direction: row;
+    padding: 0;
+  }
+}
+@media(min-width: 768px){
+  .dolar,
+  .euro,
+  .sterlin,
+  .yen {
+    display: block;
+    position: absolute;
+  }
+  .dolar {
+    top: 100px;
+    right: -50px;
+  }
+  .euro {
+    top: 275px;
+    right: -100px;
+  }
+  .sterlin {
+    top: 30%;
+    left: 50%;
+  }
+  .yen {
+    bottom: -100px;
+    left: 50%;
+  }
+  .card-container,
+  .third-container,
+  .sml-card-container {
+    justify-content: space-between;
+  }
+  .third-container,
+  .sml-card-container {
+    flex-direction: row;
+    align-items: center;
+    height: 250px;
+    border-radius: 20px;
+    background: #304c4a;
+    margin-top: -50px;
+    box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px,
+      rgb(0 0 0 / 30%) 0px 30px 60px -30px;
+  }
+  .third-container .text-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .third-container .btn-container {
+    margin-top: 0;
   }
 }
 @media (min-width: 1024px) {
@@ -237,7 +298,8 @@ h2 {
   }
   nav ul,
   .flag-container,
-  nav ol {
+  nav ol,
+  .sml-card-container {
     flex-direction: row;
   }
   nav li {
@@ -260,47 +322,21 @@ h2 {
     margin-top: 0;
     margin-left: 0.75em;
   }
-  .dolar,
-  .euro,
-  .sterlin,
-  .yen{
-    display: block;
-    position: absolute;
-  }
-  .dolar {
-    top: 100px;
-    right: -50px;
-  }
-  .euro {
-    top: 275px;
-    right: -100px;
-  }
-  .sterlin {
-    top: 30%;
-    left: 50%;
-  }
-  .yen {
-    bottom: -100px;
-    left: 50%;
-  }
+  
   .card {
     height: 330px;
   }
-  .card h2{
+  .card h2 {
     margin-bottom: 1.5rem;
   }
   main section .container p:first-child {
     margin-top: 75px;
-  }
-  .card-container{
-    justify-content: space-between;
-  }
-  main section .container p:first-child {
+    text-align: center;
     font-size: 2.25em;
+    max-width: 800px;
   }
 }
 @media (min-width: 1440px) {
-  
   .triangle {
     display: block;
     position: absolute;
